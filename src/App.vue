@@ -117,7 +117,7 @@
         </b-list>
         <b-list divider>
           <template #title>
-            <a :href="catalog + '/reservation'">
+            <a :href="orders + '/'">
               {{ $t('reservation') }}
             </a>
           </template>
@@ -185,6 +185,8 @@ export default {
 
     const catalog = process.env.VUE_APP_CATALOG
 
+    const orders = process.env.VUE_APP_ORDERS
+
     const about = process.env.VUE_APP_ABOUT
 
     const hasLogo = process.env.VUE_APP_LOGO === 'false' ? false : true
@@ -228,6 +230,7 @@ export default {
       auth,
       find,
       catalog,
+      orders,
       about,
       hasLogo,
       isDrawerActive,
