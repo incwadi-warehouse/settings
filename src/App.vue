@@ -192,7 +192,7 @@ export default {
     const isDrawerActive = ref(false)
 
     onMounted(() => {
-      router.beforeEach((to, from, next) => {
+      router.beforeEach((_to, _from, next) => {
         isDrawerActive.value = false
         next()
       })
