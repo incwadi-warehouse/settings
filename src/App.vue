@@ -73,10 +73,7 @@
           </b-dropdown-item>
         </b-dropdown>
 
-        <span
-          class="action"
-          @click.prevent="$router.push({ name: 'reservation' })"
-        >
+        <span class="action" @click.prevent="navigateToOrders">
           <b-badge
             :content="
               stateReservation.reservations &&
@@ -226,6 +223,10 @@ export default {
       window.clearInterval(reservationInterval)
     })
 
+    const navigateToOrders = () => {
+      window.location = orders
+    }
+
     return {
       auth,
       find,
@@ -237,6 +238,7 @@ export default {
       bookmark,
       current,
       stateReservation,
+      navigateToOrders,
     }
   },
 }
