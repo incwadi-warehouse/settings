@@ -86,5 +86,6 @@
   "new_genre": "New Genre",
   "theme": "Theme",
   "content": "Content",
-  "content_help": "The content will be shown on the shop's homepage. Markdown is allowed, HTML will getting stripped."
+  "content_help": "The content will be shown on the shop's homepage. Markdown is allowed, HTML will getting stripped.",
+  "shop": "Shop"
 }
