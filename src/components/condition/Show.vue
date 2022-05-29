@@ -1,3 +1,13 @@
+<script>
+export default {
+  name: 'condition-show',
+  props: {
+    condition: Object,
+    isAdmin: Boolean,
+  },
+}
+</script>
+
 <template>
   <b-list divider v-if="condition">
     <template #title>
@@ -37,13 +47,3 @@
     </template>
   </b-list>
 </template>
-
-<script>
-export default {
-  name: 'condition-show',
-  props: {
-    condition: Object,
-    isAdmin: Boolean,
-  },
-}
-</script>

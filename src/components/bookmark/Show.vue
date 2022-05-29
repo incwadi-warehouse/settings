@@ -1,3 +1,13 @@
+<script>
+export default {
+  name: 'bookmark-show',
+  props: {
+    bookmark: Object,
+    isAdmin: Boolean,
+  },
+}
+</script>
+
 <template>
   <b-list divider v-if="bookmark">
     <template #title>
@@ -35,13 +45,3 @@
     </template>
   </b-list>
 </template>
-
-<script>
-export default {
-  name: 'bookmark-show',
-  props: {
-    bookmark: Object,
-    isAdmin: Boolean,
-  },
-}
-</script>

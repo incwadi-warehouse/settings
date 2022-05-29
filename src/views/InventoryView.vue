@@ -1,3 +1,28 @@
+<script>
+import InventoryTable from '@/components/inventory/Table'
+import useInventory from '@/composables/useInventory'
+
+export default {
+  name: 'inventory-view',
+  head: {
+    title: 'Inventory',
+  },
+  components: {
+    InventoryTable,
+  },
+  props: {
+    auth: Object,
+  },
+  setup() {
+    const inventory = useInventory()
+
+    return {
+      inventory,
+    }
+  },
+}
+</script>
+
 <template>
   <article>
     <b-container size="m">
@@ -23,28 +48,3 @@
     </b-container>
   </article>
 </template>
-
-<script>
-import InventoryTable from '@/components/inventory/Table'
-import useInventory from '@/composables/useInventory'
-
-export default {
-  name: 'inventory-view',
-  head: {
-    title: 'Inventory',
-  },
-  components: {
-    InventoryTable,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const inventory = useInventory()
-
-    return {
-      inventory,
-    }
-  },
-}
-</script>

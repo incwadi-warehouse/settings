@@ -1,3 +1,33 @@
+<script>
+import SettingsStats from '../components/settings/Stats'
+import useBook from '@/composables/useBook'
+import { onMounted } from '@vue/composition-api'
+
+export default {
+  name: 'settings-view',
+  head: {
+    title: 'Settings',
+  },
+  components: {
+    SettingsStats,
+  },
+  props: {
+    auth: Object,
+  },
+  setup() {
+    const { stats, getStats } = useBook()
+
+    onMounted(getStats)
+
+    const round = (value) => {
+      return parseFloat(value).toFixed(2)
+    }
+
+    return { stats, round }
+  },
+}
+</script>
+
 <template>
   <article>
     <b-container size="m" v-if="auth && auth.state.me">
@@ -45,33 +75,3 @@
     </b-container>
   </article>
 </template>
-
-<script>
-import SettingsStats from '../components/settings/Stats'
-import useBook from '@/composables/useBook'
-import { onMounted } from '@vue/composition-api'
-
-export default {
-  name: 'settings-view',
-  head: {
-    title: 'Settings',
-  },
-  components: {
-    SettingsStats,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const { stats, getStats } = useBook()
-
-    onMounted(getStats)
-
-    const round = (value) => {
-      return parseFloat(value).toFixed(2)
-    }
-
-    return { stats, round }
-  },
-}
-</script>

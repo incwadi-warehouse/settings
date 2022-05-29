@@ -1,3 +1,22 @@
+<script>
+export default {
+  name: 'inventory-table',
+  props: {
+    inventories: Array,
+    isAdmin: Boolean,
+  },
+  setup() {
+    const formatDate = function (data) {
+      const date = new Date(data * 1000)
+
+      return date.toLocaleString()
+    }
+
+    return { formatDate }
+  },
+}
+</script>
+
 <template>
   <b-table v-if="inventories">
     <table :aria-label="$t('inventory')">
@@ -32,25 +51,6 @@
     </table>
   </b-table>
 </template>
-
-<script>
-export default {
-  name: 'inventory-table',
-  props: {
-    inventories: Array,
-    isAdmin: Boolean,
-  },
-  setup() {
-    const formatDate = function (data) {
-      const date = new Date(data * 1000)
-
-      return date.toLocaleString()
-    }
-
-    return { formatDate }
-  },
-}
-</script>
 
 <style scoped>
 .alignRight {

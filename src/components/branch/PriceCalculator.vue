@@ -1,60 +1,3 @@
-<template>
-  <b-form @submit.prevent="update" v-if="branch">
-    <!-- Base Price -->
-    <b-form-group>
-      <b-form-item>
-        <b-form-label for="baseprice">{{ $t('baseprice') }}</b-form-label>
-      </b-form-item>
-      <b-form-item>
-        <b-form-input
-          type="number"
-          id="baseprice"
-          v-model="state.pricelist.base"
-        />
-      </b-form-item>
-    </b-form-group>
-
-    <!-- Release Year -->
-    <b-form-group>
-      <b-form-item>
-        <b-form-label for="releaseYear">{{ $t('releaseYear') }}</b-form-label>
-      </b-form-item>
-      <b-form-item>
-        <b-form-helpline>{{ $t('priceCalcReleaseYearHelp') }}</b-form-helpline>
-      </b-form-item>
-      <b-form-item>
-        <b-form-textarea
-          rows="5"
-          id="releaseYear"
-          v-model="state.releaseYear"
-        />
-      </b-form-item>
-    </b-form-group>
-
-    <!-- Condition -->
-    <b-form-group>
-      <b-form-item>
-        <b-form-label for="condition">{{ $t('condition') }}</b-form-label>
-      </b-form-item>
-      <b-form-item>
-        <b-form-helpline>{{ $t('priceCalcConditionHelp') }}</b-form-helpline>
-      </b-form-item>
-      <b-form-item>
-        <b-form-textarea rows="5" id="condition" v-model="state.condition" />
-      </b-form-item>
-    </b-form-group>
-
-    <!-- Buttons -->
-    <b-form-group buttons v-if="me && me.isAdmin">
-      <b-form-group>
-        <b-form-item>
-          <b-button design="outline">{{ $t('save') }}</b-button>
-        </b-form-item>
-      </b-form-group>
-    </b-form-group>
-  </b-form>
-</template>
-
 <script>
 import { onMounted, reactive, toRefs, watch } from '@vue/composition-api'
 
@@ -151,3 +94,60 @@ export default {
   },
 }
 </script>
+
+<template>
+  <b-form @submit.prevent="update" v-if="branch">
+    <!-- Base Price -->
+    <b-form-group>
+      <b-form-item>
+        <b-form-label for="baseprice">{{ $t('baseprice') }}</b-form-label>
+      </b-form-item>
+      <b-form-item>
+        <b-form-input
+          type="number"
+          id="baseprice"
+          v-model="state.pricelist.base"
+        />
+      </b-form-item>
+    </b-form-group>
+
+    <!-- Release Year -->
+    <b-form-group>
+      <b-form-item>
+        <b-form-label for="releaseYear">{{ $t('releaseYear') }}</b-form-label>
+      </b-form-item>
+      <b-form-item>
+        <b-form-helpline>{{ $t('priceCalcReleaseYearHelp') }}</b-form-helpline>
+      </b-form-item>
+      <b-form-item>
+        <b-form-textarea
+          rows="5"
+          id="releaseYear"
+          v-model="state.releaseYear"
+        />
+      </b-form-item>
+    </b-form-group>
+
+    <!-- Condition -->
+    <b-form-group>
+      <b-form-item>
+        <b-form-label for="condition">{{ $t('condition') }}</b-form-label>
+      </b-form-item>
+      <b-form-item>
+        <b-form-helpline>{{ $t('priceCalcConditionHelp') }}</b-form-helpline>
+      </b-form-item>
+      <b-form-item>
+        <b-form-textarea rows="5" id="condition" v-model="state.condition" />
+      </b-form-item>
+    </b-form-group>
+
+    <!-- Buttons -->
+    <b-form-group buttons v-if="me && me.isAdmin">
+      <b-form-group>
+        <b-form-item>
+          <b-button design="outline">{{ $t('save') }}</b-button>
+        </b-form-item>
+      </b-form-group>
+    </b-form-group>
+  </b-form>
+</template>

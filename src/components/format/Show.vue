@@ -1,3 +1,13 @@
+<script>
+export default {
+  name: 'format-show',
+  props: {
+    format: Object,
+    isAdmin: Boolean,
+  },
+}
+</script>
+
 <template>
   <b-list divider v-if="format">
     <template #title>
@@ -37,13 +47,3 @@
     </template>
   </b-list>
 </template>
-
-<script>
-export default {
-  name: 'format-show',
-  props: {
-    format: Object,
-    isAdmin: Boolean,
-  },
-}
-</script>

@@ -1,3 +1,21 @@
+<script>
+export default {
+  name: 'settings-stats',
+  props: {
+    stats: {
+      type: Object,
+    },
+  },
+  setup(props) {
+    const calcWidth = (value) => {
+      return (value / props.stats.all) * 100
+    }
+
+    return { calcWidth }
+  },
+}
+</script>
+
 <template>
   <div v-if="stats">
     <div class="barchart">
@@ -73,24 +91,6 @@
     </ul>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'settings-stats',
-  props: {
-    stats: {
-      type: Object,
-    },
-  },
-  setup(props) {
-    const calcWidth = (value) => {
-      return (value / props.stats.all) * 100
-    }
-
-    return { calcWidth }
-  },
-}
-</script>
 
 <style scoped>
 .barchart {

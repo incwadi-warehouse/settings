@@ -1,3 +1,13 @@
+<script>
+export default {
+  name: 'genre-show',
+  props: {
+    genre: Object,
+    isAdmin: Boolean,
+  },
+}
+</script>
+
 <template>
   <b-list divider v-if="genre">
     <template #title>
@@ -37,13 +47,3 @@
     </template>
   </b-list>
 </template>
-
-<script>
-export default {
-  name: 'genre-show',
-  props: {
-    genre: Object,
-    isAdmin: Boolean,
-  },
-}
-</script>

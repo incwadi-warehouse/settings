@@ -1,3 +1,51 @@
+<script>
+import { reactive, toRefs } from '@vue/composition-api'
+
+export default {
+  name: 'edit',
+  props: {
+    branch: Object,
+    me: Object,
+  },
+  setup(props, { emit }) {
+    const { branch } = toRefs(props)
+
+    const state = reactive({
+      name: branch.value.name,
+      steps: branch.value.steps,
+      currency: branch.value.currency,
+      ordering: branch.value.ordering,
+      orderBy: branch.value.orderBy,
+      isPublic: branch.value.public,
+      pricelist: branch.value.pricelist,
+      cart: branch.value.cart,
+      content: branch.value.content,
+    })
+
+    const update = () => {
+      if (!props.me || !props.me.isAdmin) return
+
+      emit('update', {
+        id: branch.value.id,
+        params: {
+          name: state.name,
+          steps: state.steps,
+          currency: state.currency,
+          ordering: state.ordering,
+          orderBy: state.orderBy,
+          public: state.isPublic,
+          pricelist: state.pricelist,
+          cart: state.cart,
+          content: state.content,
+        },
+      })
+    }
+
+    return { state, update }
+  },
+}
+</script>
+
 <template>
   <b-form @submit.prevent="update" v-if="branch">
     <!-- branch -->
@@ -129,51 +177,3 @@
     </b-form-group>
   </b-form>
 </template>
-
-<script>
-import { reactive, toRefs } from '@vue/composition-api'
-
-export default {
-  name: 'edit',
-  props: {
-    branch: Object,
-    me: Object,
-  },
-  setup(props, { emit }) {
-    const { branch } = toRefs(props)
-
-    const state = reactive({
-      name: branch.value.name,
-      steps: branch.value.steps,
-      currency: branch.value.currency,
-      ordering: branch.value.ordering,
-      orderBy: branch.value.orderBy,
-      isPublic: branch.value.public,
-      pricelist: branch.value.pricelist,
-      cart: branch.value.cart,
-      content: branch.value.content,
-    })
-
-    const update = () => {
-      if (!props.me || !props.me.isAdmin) return
-
-      emit('update', {
-        id: branch.value.id,
-        params: {
-          name: state.name,
-          steps: state.steps,
-          currency: state.currency,
-          ordering: state.ordering,
-          orderBy: state.orderBy,
-          public: state.isPublic,
-          pricelist: state.pricelist,
-          cart: state.cart,
-          content: state.content,
-        },
-      })
-    }
-
-    return { state, update }
-  },
-}
-</script>

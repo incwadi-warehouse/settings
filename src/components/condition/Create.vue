@@ -1,3 +1,18 @@
+<script>
+import { reactive } from '@vue/composition-api'
+
+export default {
+  name: 'condition-create',
+  setup() {
+    const state = reactive({
+      name: '',
+    })
+
+    return { state }
+  },
+}
+</script>
+
 <template>
   <b-form
     @submit.prevent="
@@ -22,18 +37,3 @@
     </b-form-group>
   </b-form>
 </template>
-
-<script>
-import { reactive } from '@vue/composition-api'
-
-export default {
-  name: 'condition-create',
-  setup() {
-    const state = reactive({
-      name: '',
-    })
-
-    return { state }
-  },
-}
-</script>
