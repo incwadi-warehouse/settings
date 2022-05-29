@@ -1,14 +1,12 @@
 <script>
-import { reactive } from '@vue/composition-api'
+import { ref } from '@vue/composition-api'
 
 export default {
   name: 'bookmark-create',
   setup() {
-    const state = reactive({
-      url: '',
-    })
+    const url = ref('')
 
-    return { state }
+    return { url }
   },
 }
 </script>
@@ -16,8 +14,8 @@ export default {
 <template>
   <b-form
     @submit.prevent="
-      $emit('create', state.url)
-      state.url = ''
+      $emit('create', url)
+      url = ''
     "
   >
     <b-form-group>
@@ -31,7 +29,7 @@ export default {
           type="text"
           id="bookmark"
           :placeholder="$t('enter_bookmark_and_hit_enter')"
-          v-model="state.url"
+          v-model="url"
         />
       </b-form-item>
     </b-form-group>

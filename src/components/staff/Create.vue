@@ -1,14 +1,12 @@
 <script>
-import { reactive } from '@vue/composition-api'
+import { ref } from '@vue/composition-api'
 
 export default {
   name: 'staff-create',
   setup() {
-    const state = reactive({
-      name: '',
-    })
+    const name = ref('')
 
-    return { state }
+    return { name }
   },
 }
 </script>
@@ -16,8 +14,8 @@ export default {
 <template>
   <b-form
     @submit.prevent="
-      $emit('create', state.name)
-      state.name = ''
+      $emit('create', name)
+      name = ''
     "
   >
     <b-form-group>
@@ -31,7 +29,7 @@ export default {
           type="text"
           id="staff"
           :placeholder="$t('enter_staff_and_hit_enter')"
-          v-model="state.name"
+          v-model="name"
         />
       </b-form-item>
     </b-form-group>
