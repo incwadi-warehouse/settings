@@ -6,7 +6,7 @@ export default {
     isAdmin: Boolean,
   },
   setup() {
-    const formatDate = function (data) {
+    const formatDate = (data) => {
       const date = new Date(data * 1000)
 
       return date.toLocaleString()
