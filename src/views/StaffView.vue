@@ -1,7 +1,7 @@
 <script>
-import StaffShow from '@/components/staff/Show'
-import StaffCreate from '@/components/staff/Create'
-import useStaff from '@/composables/useStaff'
+import StaffShow from '@/components/staff/Show.vue'
+import StaffCreate from '@/components/staff/Create.vue'
+import useStaff from '@/composables/useStaff.js'
 
 export default {
   name: 'staff-view',

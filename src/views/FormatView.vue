@@ -1,7 +1,7 @@
 <script>
-import FormatShow from '@/components/format/Show'
-import FormatCreate from '@/components/format/Create'
-import useFormat from '@/composables/useFormat'
+import FormatShow from '@/components/format/Show.vue'
+import FormatCreate from '@/components/format/Create.vue'
+import useFormat from '@/composables/useFormat.js'
 
 export default {
   name: 'format-view',

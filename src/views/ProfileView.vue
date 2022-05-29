@@ -1,7 +1,7 @@
 <script>
-import AuthPassword from '@/components/auth/Password'
-import ProfileLocale from '@/components/profile/Locale'
-import ProfileTheme from '@/components/profile/Theme'
+import AuthPassword from '@/components/auth/Password.vue'
+import ProfileLocale from '@/components/profile/Locale.vue'
+import ProfileTheme from '@/components/profile/Theme.vue'
 
 export default {
   name: 'profile-view',

@@ -7,7 +7,7 @@
 
 <script>
 import { reactive, watch } from '@vue/composition-api'
-import i18n from '@/i18n'
+import i18n from '@/i18n.js'
 
 export default {
   name: 'profile-locale',

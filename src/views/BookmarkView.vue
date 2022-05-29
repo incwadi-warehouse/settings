@@ -1,7 +1,7 @@
 <script>
-import BookmarkShow from '@/components/bookmark/Show'
-import BookmarkCreate from '@/components/bookmark/Create'
-import useBookmark from '@/composables/useBookmark'
+import BookmarkShow from '@/components/bookmark/Show.vue'
+import BookmarkCreate from '@/components/bookmark/Create.vue'
+import useBookmark from '@/composables/useBookmark.js'
 
 export default {
   name: 'bookmark-view',
