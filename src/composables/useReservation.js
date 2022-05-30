@@ -1,7 +1,7 @@
 import { reactive } from '@vue/composition-api'
 import { request } from '@/api'
 
-export default function useReservation() {
+export function useReservation() {
   const base = '/api/reservation'
 
   const state = reactive({

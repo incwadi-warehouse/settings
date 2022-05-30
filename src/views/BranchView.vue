@@ -2,7 +2,7 @@
 import BranchEdit from '../components/branch/Edit.vue'
 import BranchCleanBooks from '../components/branch/CleanBooks.vue'
 import BranchPriceCalculator from '@/components/branch/PriceCalculator.vue'
-import useBranch from '@/composables/useBranch.js'
+import { useBranch } from '@/composables/useBranch.js'
 import useToast from './../../node_modules/@baldeweg/components/src/composables/useToast'
 import { watch } from '@vue/composition-api'
 

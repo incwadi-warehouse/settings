@@ -1,6 +1,6 @@
 <script>
 import InventoryTable from '@/components/inventory/Table.vue'
-import useInventory from '@/composables/useInventory.js'
+import { useInventory } from '@/composables/useInventory.js'
 
 export default {
   name: 'inventory-view',

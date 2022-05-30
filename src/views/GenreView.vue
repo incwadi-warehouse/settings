@@ -1,7 +1,7 @@
 <script>
 import GenreShow from '@/components/genre/Show.vue'
 import GenreCreate from '@/components/genre/Create.vue'
-import useGenre from '@/composables/useGenre.js'
+import { useGenre } from '@/composables/useGenre.js'
 
 export default {
   name: 'genre-view',

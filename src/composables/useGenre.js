@@ -1,7 +1,7 @@
 import { onMounted, reactive } from '@vue/composition-api'
 import { request } from '@/api'
 
-export default function useGenre() {
+export function useGenre() {
   const base = '/api/genre'
 
   const state = reactive({

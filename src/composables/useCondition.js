@@ -1,7 +1,7 @@
 import { onMounted, reactive } from '@vue/composition-api'
 import { request } from '@/api'
 
-export default function useCondition() {
+export function useCondition() {
   const base = '/api/condition'
 
   const state = reactive({

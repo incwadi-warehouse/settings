@@ -2,9 +2,9 @@
 import Logo from './components/Logo.vue'
 import AuthLogin from '@/components/auth/Login.vue'
 import useAuth from '@/composables/useAuth.js'
-import useBookmark from '@/composables/useBookmark.js'
+import { useBookmark } from '@/composables/useBookmark.js'
 import useToast from './../node_modules/@baldeweg/components/src/composables/useToast'
-import useReservation from '@/composables/useReservation.js'
+import { useReservation } from '@/composables/useReservation.js'
 import router from '@/router'
 import { onMounted, onUnmounted, ref } from '@vue/composition-api'
 

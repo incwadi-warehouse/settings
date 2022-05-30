@@ -1,7 +1,7 @@
 <script>
 import ConditionShow from '@/components/condition/Show.vue'
 import ConditionCreate from '@/components/condition/Create.vue'
-import useCondition from '@/composables/useCondition.js'
+import { useCondition } from '@/composables/useCondition.js'
 
 export default {
   name: 'condition-view',

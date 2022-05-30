@@ -1,7 +1,7 @@
 import { onMounted, reactive } from '@vue/composition-api'
 import { request } from '@/api'
 
-export default function useStaff() {
+export function useStaff() {
   const base = '/api/staff'
 
   const state = reactive({

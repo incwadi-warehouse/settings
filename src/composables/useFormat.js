@@ -1,7 +1,7 @@
 import { onMounted, reactive } from '@vue/composition-api'
 import { request } from '@/api'
 
-export default function useFormat() {
+export function useFormat() {
   const base = '/api/format'
 
   const state = reactive({

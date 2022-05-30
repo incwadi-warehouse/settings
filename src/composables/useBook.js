@@ -1,7 +1,7 @@
 import { ref } from '@vue/composition-api'
 import { request } from '@/api'
 
-export default function useBook() {
+export function useBook() {
   const stats = ref(null)
 
   const getStats = () => {

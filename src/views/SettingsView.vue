@@ -1,6 +1,6 @@
 <script>
 import SettingsStats from '../components/settings/Stats.vue'
-import useBook from '@/composables/useBook.js'
+import { useBook } from '@/composables/useBook.js'
 import { onMounted } from '@vue/composition-api'
 
 export default {
