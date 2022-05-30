@@ -87,5 +87,6 @@
   "theme": "Design",
   "content": "Content",
   "content_help": "Der Content wird auf der Startseite des Shops gezeigt. Markdown ist möglich, HTML wird entfernt.",
-  "shop": "Shop"
+  "shop": "Shop",
+  "deprecated_staff": "Deprecated: Die Mitarbeiterliste wird in Kürze entfernt."
 }

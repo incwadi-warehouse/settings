@@ -26,6 +26,12 @@ export default {
 <template>
   <article>
     <b-container size="m">
+      <b-alert type="warning">
+        <p>{{ $t('deprecated_staff') }}</p>
+      </b-alert>
+    </b-container>
+
+    <b-container size="m">
       <h1>{{ $t('staff') }}</h1>
       <p>{{ $t('staff_desc') }}</p>
     </b-container>

@@ -67,7 +67,7 @@ export default {
         <template #title>{{ $t('genre') }}</template>
       </b-list>
       <b-list :route="{ name: 'staff' }" divider>
-        <template #title>{{ $t('staff') }}</template>
+        <template #title>{{ $t('staff') }} (DEPRECATED)</template>
       </b-list>
       <b-list :route="{ name: 'bookmark' }" divider>
         <template #title>{{ $t('bookmarks') }}</template>
