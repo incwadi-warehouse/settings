@@ -1,48 +1,37 @@
-<script>
-import BranchEdit from '../components/branch/Edit.vue'
-import BranchCleanBooks from '../components/branch/CleanBooks.vue'
-import BranchPriceCalculator from '@/components/branch/PriceCalculator.vue'
+<script setup>
+import { useTitle } from '@baldeweg/ui'
+import BranchEdit from '../components/branch/BranchEdit.vue'
+import BranchCleanBooks from '../components/branch/BranchCleanBooks.vue'
+import BranchPriceCalculator from '@/components/branch/BranchPriceCalculator.vue'
 import { useBranch } from '@/composables/useBranch.js'
-import useToast from './../../node_modules/@baldeweg/components/src/composables/useToast'
-import { watch } from '@vue/composition-api'
+import { useToast } from '@baldeweg/ui'
+import { watch } from 'vue'
 
-export default {
-  name: 'branch-view',
-  head: {
-    title: 'Branch',
-  },
-  components: {
-    BranchEdit,
-    BranchCleanBooks,
-    BranchPriceCalculator,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const branch = useBranch()
+useTitle({ title: 'Branch' })
 
-    const toast = useToast()
+defineProps({
+  auth: Object,
+})
 
-    watch(
-      () => branch.state.hasSuccess,
-      () => {
-        branch.state.hasSuccess = false
-        toast.add({ type: 'success', body: 'Gespeichert' })
-      }
-    )
+const branch = useBranch()
 
-    watch(
-      () => branch.state.hasError,
-      () => {
-        branch.state.hasError = false
-        toast.add({ type: 'error', body: 'Fehler' })
-      }
-    )
+const toast = useToast()
 
-    return { branch }
-  },
-}
+watch(
+  () => branch.state.hasSuccess,
+  () => {
+    branch.state.hasSuccess = false
+    toast.add({ type: 'success', body: 'Gespeichert' })
+  }
+)
+
+watch(
+  () => branch.state.hasError,
+  () => {
+    branch.state.hasError = false
+    toast.add({ type: 'error', body: 'Fehler' })
+  }
+)
 </script>
 
 <template>
@@ -53,7 +42,7 @@ export default {
 
     <b-container size="m" v-if="auth.state.me">
       <h2>{{ $t('common') }}</h2>
-      <branch-edit
+      <BranchEdit
         :branch="auth.state.me.branch"
         :me="auth.state.me"
         @update="branch.update"
@@ -63,13 +52,13 @@ export default {
     <b-container size="m" v-if="auth.state.me.isAdmin">
       <h2>{{ $t('clean_up') }}</h2>
       <p>{{ $t('clean_up_desc') }}</p>
-      <branch-clean-books @clean="branch.clean" />
+      <BranchCleanBooks @clean="branch.clean" />
     </b-container>
 
     <b-container size="m">
       <h3>{{ $t('pricelist') }}</h3>
       <p>{{ $t('pricelistDesc') }}</p>
-      <branch-price-calculator
+      <BranchPriceCalculator
         :branch="auth.state.me.branch"
         :me="auth.state.me"
         @update="branch.update"

@@ -1,30 +1,21 @@
-<script>
-import SettingsStats from '../components/settings/Stats.vue'
+<script setup>
+import { useTitle } from '@baldeweg/ui'
+import SettingsStats from '../components/settings/SettingsStats.vue'
 import { useBook } from '@/composables/useBook.js'
-import { onMounted } from '@vue/composition-api'
+import { onMounted } from 'vue'
 
-export default {
-  name: 'settings-view',
-  head: {
-    title: 'Settings',
-  },
-  components: {
-    SettingsStats,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const { stats, getStats } = useBook()
+useTitle({ title: 'Settings' })
 
-    onMounted(getStats)
+defineProps({
+  auth: Object,
+})
 
-    const round = (value) => {
-      return parseFloat(value).toFixed(2)
-    }
+const { stats, getStats } = useBook()
 
-    return { stats, round }
-  },
+onMounted(getStats)
+
+const round = (value) => {
+  return parseFloat(value).toFixed(2)
 }
 </script>
 
@@ -39,7 +30,7 @@ export default {
     </b-container>
 
     <b-container size="m" v-if="stats">
-      <settings-stats :stats="stats" />
+      <SettingsStats :stats="stats" />
     </b-container>
 
     <b-container size="m" v-if="stats">

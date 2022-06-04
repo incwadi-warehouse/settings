@@ -1,26 +1,16 @@
-<script>
-import BookmarkShow from '@/components/bookmark/Show.vue'
-import BookmarkCreate from '@/components/bookmark/Create.vue'
+<script setup>
+import { useTitle } from '@baldeweg/ui'
+import BookmarkShow from '@/components/bookmark/BookmarkShow.vue'
+import BookmarkCreate from '@/components/bookmark/BookmarkCreate.vue'
 import { useBookmark } from '@/composables/useBookmark.js'
 
-export default {
-  name: 'bookmark-view',
-  head: {
-    title: 'Bookmarks',
-  },
-  components: {
-    BookmarkShow,
-    BookmarkCreate,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const bookmark = useBookmark()
+useTitle({ title: 'Bookmark' })
 
-    return { bookmark }
-  },
-}
+defineProps({
+  auth: Object,
+})
+
+const bookmark = useBookmark()
 </script>
 
 <template>
@@ -31,10 +21,10 @@ export default {
     </b-container>
 
     <b-container size="m">
-      <bookmark-show
+      <BookmarkShow
         v-for="item in bookmark.state.bookmarks"
         :key="item.id"
-        :bookmark="item"
+        :item="item"
         :isAdmin="auth.state.me.isAdmin"
         @update="bookmark.update"
         @remove="bookmark.remove"
@@ -42,7 +32,7 @@ export default {
     </b-container>
 
     <b-container size="m">
-      <bookmark-create @create="bookmark.create" />
+      <BookmarkCreate @create="bookmark.create" />
     </b-container>
   </article>
 </template>

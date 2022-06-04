@@ -1,26 +1,16 @@
-<script>
-import FormatShow from '@/components/format/Show.vue'
-import FormatCreate from '@/components/format/Create.vue'
+<script setup>
+import { useTitle } from '@baldeweg/ui'
+import FormatShow from '@/components/format/FormatShow.vue'
+import FormatCreate from '@/components/format/FormatCreate.vue'
 import { useFormat } from '@/composables/useFormat.js'
 
-export default {
-  name: 'format-view',
-  head: {
-    title: 'Formats',
-  },
-  components: {
-    FormatShow,
-    FormatCreate,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const format = useFormat()
+useTitle({ title: 'Profile' })
 
-    return { format }
-  },
-}
+defineProps({
+  auth: Object,
+})
+
+const format = useFormat()
 </script>
 
 <template>
@@ -31,10 +21,10 @@ export default {
     </b-container>
 
     <b-container size="m">
-      <format-show
+      <FormatShow
         v-for="item in format.state.formats"
         :key="item.id"
-        :format="item"
+        :item="item"
         :isAdmin="auth.state.me.isAdmin"
         @update="format.update"
         @remove="format.remove"
@@ -42,7 +32,7 @@ export default {
     </b-container>
 
     <b-container size="m" v-if="auth.state.me.isAdmin">
-      <format-create @create="format.create" />
+      <FormatCreate @create="format.create" />
     </b-container>
   </article>
 </template>

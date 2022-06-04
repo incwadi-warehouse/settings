@@ -1,4 +1,4 @@
-import { onMounted, reactive } from '@vue/composition-api'
+import { onMounted, reactive, ref } from 'vue'
 import { request } from '@/api'
 
 export function useGenre() {
@@ -7,6 +7,12 @@ export function useGenre() {
   const state = reactive({
     genres: [],
   })
+
+  const genre = ref('')
+
+  const set = (data) => {
+    genre.value = data
+  }
 
   const list = () => {
     return request('get', base + '/').then((response) => {
@@ -38,8 +44,10 @@ export function useGenre() {
 
   return {
     state,
+    genre,
     create,
     update,
     remove,
+    set,
   }
 }

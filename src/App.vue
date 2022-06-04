@@ -1,89 +1,81 @@
-<script>
-import Logo from './components/Logo.vue'
+<script setup>
+import { useLocale, useTheme } from '@baldeweg/ui'
+import Logo from './components/AppLogo.vue'
 import AuthLogin from '@/components/auth/Login.vue'
 import useAuth from '@/composables/useAuth.js'
 import { useBookmark } from '@/composables/useBookmark.js'
-import useToast from './../node_modules/@baldeweg/components/src/composables/useToast'
+import { useToast } from '@baldeweg/ui'
 import { useReservation } from '@/composables/useReservation.js'
 import router from '@/router'
-import { onMounted, onUnmounted, ref } from '@vue/composition-api'
+import { onMounted, onUnmounted, ref } from 'vue'
 
-export default {
-  name: 'app',
-  components: {
-    Logo,
-    AuthLogin,
-  },
-  head: {
-    title: 'Home',
-  },
-  setup() {
-    const auth = useAuth()
+useLocale()
+useTheme()
 
-    const find = process.env.VUE_APP_FIND
+const auth = useAuth()
 
-    const catalog = process.env.VUE_APP_CATALOG
+const find = import.meta.env.VUE_APP_FIND
 
-    const orders = process.env.VUE_APP_ORDERS
+const catalog = import.meta.env.VUE_APP_CATALOG
 
-    const about = process.env.VUE_APP_ABOUT
+const orders = import.meta.env.VUE_APP_ORDERS
 
-    const hasLogo = process.env.VUE_APP_LOGO === 'false' ? false : true
+const about = import.meta.env.VUE_APP_ABOUT
 
-    const isDrawerActive = ref(false)
+const hasLogo = import.meta.env.VUE_APP_LOGO === 'false' ? false : true
 
-    onMounted(() => {
-      router.beforeEach((_to, _from, next) => {
-        isDrawerActive.value = false
-        next()
-      })
-    })
+const isDrawerActive = ref(false)
 
-    const bookmark = useBookmark()
+onMounted(() => {
+  router.beforeEach((_to, _from, next) => {
+    isDrawerActive.value = false
+    next()
+  })
+})
 
-    let bookmarkInterval = null
+const bookmark = useBookmark()
 
-    const refresh = () => {
-      bookmarkInterval = setInterval(bookmark.list, 5000)
-    }
+let bookmarkInterval = null
 
-    onMounted(refresh)
-
-    onUnmounted(() => {
-      clearInterval(bookmarkInterval)
-    })
-
-    const navigateToOrders = () => {
-      window.location = orders
-    }
-
-    const { current } = useToast()
-
-    const { state: stateReservation, list: listReservations } = useReservation()
-
-    listReservations()
-
-    const reservationInterval = setInterval(listReservations, 5000)
-
-    onUnmounted(() => {
-      window.clearInterval(reservationInterval)
-    })
-
-    return {
-      auth,
-      find,
-      catalog,
-      orders,
-      about,
-      hasLogo,
-      isDrawerActive,
-      bookmark,
-      current,
-      stateReservation,
-      navigateToOrders,
-    }
-  },
+if (auth.state.isAuthenticated) {
+  bookmark.list()
 }
+
+const refresh = () => {
+  bookmarkInterval = setInterval(() => {
+    if (auth.state.isAuthenticated) {
+      bookmark.list()
+    }
+  }, 5000)
+}
+
+onMounted(refresh)
+
+onUnmounted(() => {
+  clearInterval(bookmarkInterval)
+})
+
+const navigateToOrders = () => {
+  window.location = orders
+}
+
+const { current } = useToast()
+
+const { state: stateReservation, list: listReservations } = useReservation()
+
+if (auth.state.isAuthenticated) {
+  listReservations()
+}
+
+const reservationInterval = setInterval(() => {
+  if (auth.state.isAuthenticated) {
+    listReservations()
+  }
+}, 5000)
+
+onUnmounted(() => {
+  window.clearInterval(reservationInterval)
+})
 </script>
 
 <template>

@@ -1,26 +1,16 @@
-<script>
-import ConditionShow from '@/components/condition/Show.vue'
-import ConditionCreate from '@/components/condition/Create.vue'
+<script setup>
+import { useTitle } from '@baldeweg/ui'
+import ConditionShow from '@/components/condition/ConditionShow.vue'
+import ConditionCreate from '@/components/condition/ConditionCreate.vue'
 import { useCondition } from '@/composables/useCondition.js'
 
-export default {
-  name: 'condition-view',
-  head: {
-    title: 'Conditions',
-  },
-  components: {
-    ConditionShow,
-    ConditionCreate,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const condition = useCondition()
+useTitle({ title: 'Condition' })
 
-    return { condition }
-  },
-}
+defineProps({
+  auth: Object,
+})
+
+const condition = useCondition()
 </script>
 
 <template>
@@ -31,10 +21,10 @@ export default {
     </b-container>
 
     <b-container size="m">
-      <condition-show
+      <ConditionShow
         v-for="item in condition.state.conditions"
         :key="item.id"
-        :condition="item"
+        :item="item"
         :isAdmin="auth.state.me.isAdmin"
         @update="condition.update"
         @remove="condition.remove"
@@ -42,7 +32,7 @@ export default {
     </b-container>
 
     <b-container size="m" v-if="auth.state.me.isAdmin">
-      <condition-create @create="condition.create" />
+      <ConditionCreate @create="condition.create" />
     </b-container>
   </article>
 </template>

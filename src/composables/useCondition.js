@@ -1,4 +1,4 @@
-import { onMounted, reactive } from '@vue/composition-api'
+import { onMounted, reactive, ref } from 'vue'
 import { request } from '@/api'
 
 export function useCondition() {
@@ -7,6 +7,12 @@ export function useCondition() {
   const state = reactive({
     conditions: [],
   })
+
+  const condition = ref('')
+
+  const set = (data) => {
+    condition.value = data
+  }
 
   const list = () => {
     return request('get', base + '/').then((response) => {
@@ -38,8 +44,10 @@ export function useCondition() {
 
   return {
     state,
+    condition,
     create,
     update,
     remove,
+    set,
   }
 }

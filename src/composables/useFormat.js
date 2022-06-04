@@ -1,4 +1,4 @@
-import { onMounted, reactive } from '@vue/composition-api'
+import { onMounted, reactive, ref } from 'vue'
 import { request } from '@/api'
 
 export function useFormat() {
@@ -7,6 +7,12 @@ export function useFormat() {
   const state = reactive({
     formats: [],
   })
+
+  const format = ref('')
+
+  const set = (data) => {
+    format.value = data
+  }
 
   const list = () => {
     return request('get', base + '/').then((response) => {
@@ -38,8 +44,10 @@ export function useFormat() {
 
   return {
     state,
+    format,
     create,
     update,
     remove,
+    set,
   }
 }

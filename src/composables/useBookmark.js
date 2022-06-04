@@ -1,4 +1,4 @@
-import { onMounted, reactive } from '@vue/composition-api'
+import { reactive, ref } from 'vue'
 import { request } from '@/api'
 
 export function useBookmark() {
@@ -8,13 +8,19 @@ export function useBookmark() {
     bookmarks: [],
   })
 
+  const bookmark = ref('')
+
+  const set = (data) => {
+    bookmark.value = data
+  }
+
   const list = () => {
     return request('get', base + '/').then((response) => {
       state.bookmarks = response.data
     })
   }
 
-  onMounted(list)
+  // onMounted(list)
 
   const create = (data) => {
     return request('post', base + '/new', { url: data }).then(() => {
@@ -51,11 +57,13 @@ export function useBookmark() {
 
   return {
     state,
+    bookmark,
     list,
     create,
     createFromPage,
     open,
     remove,
     update,
+    set,
   }
 }

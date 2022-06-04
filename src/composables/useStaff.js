@@ -1,4 +1,4 @@
-import { onMounted, reactive } from '@vue/composition-api'
+import { onMounted, reactive, ref } from 'vue'
 import { request } from '@/api'
 
 export function useStaff() {
@@ -7,6 +7,12 @@ export function useStaff() {
   const state = reactive({
     staff: [],
   })
+
+  const staff = ref('')
+
+  const set = (data) => {
+    staff.value = data
+  }
 
   const list = () => {
     return request('get', base + '/').then((response) => {
@@ -38,8 +44,10 @@ export function useStaff() {
 
   return {
     state,
+    staff,
     create,
     update,
     remove,
+    set,
   }
 }

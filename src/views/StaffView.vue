@@ -1,26 +1,16 @@
-<script>
-import StaffShow from '@/components/staff/Show.vue'
-import StaffCreate from '@/components/staff/Create.vue'
+<script setup>
+import { useTitle } from '@baldeweg/ui'
+import StaffShow from '@/components/staff/StaffShow.vue'
+import StaffCreate from '@/components/staff/StaffCreate.vue'
 import { useStaff } from '@/composables/useStaff.js'
 
-export default {
-  name: 'staff-view',
-  head: {
-    title: 'Staff',
-  },
-  components: {
-    StaffShow,
-    StaffCreate,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const staff = useStaff()
+useTitle({ title: 'staff' })
 
-    return { staff }
-  },
-}
+defineProps({
+  auth: Object,
+})
+
+const staff = useStaff()
 </script>
 
 <template>
@@ -37,10 +27,10 @@ export default {
     </b-container>
 
     <b-container size="m">
-      <staff-show
+      <StaffShow
         v-for="item in staff.state.staff"
         :key="item.id"
-        :staff="item"
+        :item="item"
         :isAdmin="auth.state.me.isAdmin"
         @update="staff.update"
         @remove="staff.remove"
@@ -48,7 +38,7 @@ export default {
     </b-container>
 
     <b-container size="m" v-if="auth.state.me.isAdmin">
-      <staff-create @create="staff.create" />
+      <StaffCreate @create="staff.create" />
     </b-container>
   </article>
 </template>

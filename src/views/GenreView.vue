@@ -1,26 +1,16 @@
-<script>
-import GenreShow from '@/components/genre/Show.vue'
-import GenreCreate from '@/components/genre/Create.vue'
+<script setup>
+import { useTitle } from '@baldeweg/ui'
+import GenreShow from '@/components/genre/GenreShow.vue'
+import GenreCreate from '@/components/genre/GenreCreate.vue'
 import { useGenre } from '@/composables/useGenre.js'
 
-export default {
-  name: 'genre-view',
-  head: {
-    title: 'Genres',
-  },
-  components: {
-    GenreShow,
-    GenreCreate,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const genre = useGenre()
+useTitle({ title: 'Genre' })
 
-    return { genre }
-  },
-}
+defineProps({
+  auth: Object,
+})
+
+const genre = useGenre()
 </script>
 
 <template>
@@ -31,10 +21,10 @@ export default {
     </b-container>
 
     <b-container size="m">
-      <genre-show
+      <GenreShow
         v-for="item in genre.state.genres"
         :key="item.id"
-        :genre="item"
+        :item="item"
         :isAdmin="auth.state.me.isAdmin"
         @update="genre.update"
         @remove="genre.remove"
@@ -42,7 +32,7 @@ export default {
     </b-container>
 
     <b-container size="m" v-if="auth.state.me.isAdmin">
-      <genre-create @create="genre.create" />
+      <GenreCreate @create="genre.create" />
     </b-container>
   </article>
 </template>

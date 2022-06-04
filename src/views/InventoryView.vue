@@ -1,26 +1,15 @@
-<script>
-import InventoryTable from '@/components/inventory/Table.vue'
+<script setup>
+import { useTitle } from '@baldeweg/ui'
+import InventoryTable from '@/components/inventory/InventoryTable.vue'
 import { useInventory } from '@/composables/useInventory.js'
 
-export default {
-  name: 'inventory-view',
-  head: {
-    title: 'Inventory',
-  },
-  components: {
-    InventoryTable,
-  },
-  props: {
-    auth: Object,
-  },
-  setup() {
-    const inventory = useInventory()
+useTitle({ title: 'Inventory' })
 
-    return {
-      inventory,
-    }
-  },
-}
+defineProps({
+  auth: Object,
+})
+
+const inventory = useInventory()
 </script>
 
 <template>
@@ -40,7 +29,7 @@ export default {
     </b-container>
 
     <b-container size="m">
-      <inventory-table
+      <InventoryTable
         :inventories="inventory.state.inventories"
         :isAdmin="auth.state.me.isAdmin"
         @end="inventory.end"
