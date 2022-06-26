@@ -1,4 +1,4 @@
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { request } from '@/api'
 
 export function useBookmark() {
@@ -20,7 +20,7 @@ export function useBookmark() {
     })
   }
 
-  // onMounted(list)
+  onMounted(list)
 
   const create = (data) => {
     return request('post', base + '/new', { url: data }).then(() => {
