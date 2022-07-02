@@ -57,9 +57,6 @@ const round = (value) => {
       <b-list :route="{ name: 'genre' }" divider>
         <template #title>{{ $t('genre') }}</template>
       </b-list>
-      <b-list :route="{ name: 'staff' }" divider>
-        <template #title>{{ $t('staff') }} (DEPRECATED)</template>
-      </b-list>
       <b-list :route="{ name: 'bookmark' }" divider>
         <template #title>{{ $t('bookmarks') }}</template>
       </b-list>

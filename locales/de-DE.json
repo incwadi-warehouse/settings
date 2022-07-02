@@ -15,7 +15,6 @@
   "search": "Suche",
   "name": "Name",
   "branch": "Filiale",
-  "staff": "Mitarbeiter",
   "all_books": "Buch insgesamt | Bücher insgesamt",
   "available_books": "verfügbares Buch | verfügbare Bücher",
   "sold_books": "verkauftes Buch | verkaufte Bücher",
@@ -63,10 +62,8 @@
   "baseprice": "Grundpreis",
   "priceCalcReleaseYearHelp": "Nutze Schlüsselpaare nach dem Muster JAHR:PREIS z.B. 2021:-1. Ein Eintrag pro Zeile.",
   "priceCalcConditionHelp": "Nutze Schlüsselpaare nach dem Muster ZUSTAND_ID:PREIS z.B. 1:2. Ein Eintrag pro Zeile.",
-  "find": "Öffentliche Suche",
   "formats_desc": "Jeder kann Typen sehen, jedoch können nur Admins neue Typen anlegen oder Typen löschen.",
   "genres_desc": "Organisiere deine Bücher in Rubriken.",
-  "staff_desc": "Organisiere deine Mitarbeiter:innen",
   "bookmarks_desc": "Bookmarks können von jedem angelegt werden und sie sind an die jeweilige Filiale gebunden.",
   "wrongCredentials": "Bitte Zugangsdaten prüfen.",
   "stats": "Statistik",
@@ -75,8 +72,6 @@
   "storage_usage": "Speicherverbrauch",
   "orderBy": "Sortiere nach",
   "enter_genre_and_hit_enter": "Rubrik eingeben und Enter drücken.",
-  "enter_staff_and_hit_enter": "Mitarbeiter eingeben und Enter drücken.",
-  "new_staff": "Neue/r Mitarbeiter/in",
   "activateCartHelp": "Dürfen Nutzer Bücher in den Warenkorb hinzufügen?",
   "activateCart": "Warenkorb aktivieren",
   "directory": "Verzeichnis",
@@ -87,6 +82,5 @@
   "theme": "Design",
   "content": "Content",
   "content_help": "Der Content wird auf der Startseite des Shops gezeigt. Markdown ist möglich, HTML wird entfernt.",
-  "shop": "Shop",
-  "deprecated_staff": "Deprecated: Die Mitarbeiterliste wird in Kürze entfernt."
+  "shop": "Shop"
 }

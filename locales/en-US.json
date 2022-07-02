@@ -15,7 +15,6 @@
   "search": "Search",
   "name": "Name",
   "branch": "Branch",
-  "staff": "Staff Members",
   "all_books": "book in sum | books in sum",
   "available_books": "available book | available books",
   "sold_books": "sold book | sold books",
@@ -63,10 +62,8 @@
   "baseprice": "Base Price",
   "priceCalcReleaseYearHelp": "Use keypairs like YEAR:PRICE e.g. 2021:-1. One entry per line.",
   "priceCalcConditionHelp": "Use keypairs like CONDITION_ID:PRICE e.g. 1:2. One entry per line.",
-  "find": "Public Search",
   "formats_desc": "Everyone can see formats, but only admins can create new ones or delete existing formats.",
   "genres_desc": "Organize your books in genres.",
-  "staff_desc": "Organize your staff.",
   "bookmarks_desc": "Bookmarks can be created by everyone and are bound to a branch.",
   "wrongCredentials": "Please check your credentials.",
   "stats": "Stats",
@@ -75,9 +72,7 @@
   "storage_usage": "Storage Usage",
   "orderBy": "Order By",
   "enter_genre_and_hit_enter": "Enter Genre and Hit Enter",
-  "enter_staff_and_hit_enter": "Enter Staff and Hit Enter",
-  "new_staff": "New Staff",
-  "activateCartHelp":"Are users allowed to add books to the cart?",
+  "activateCartHelp": "Are users allowed to add books to the cart?",
   "activateCart": "Activate Cart",
   "directory": "Directory",
   "passwordSuccessful": "Password changed",
@@ -87,6 +82,5 @@
   "theme": "Theme",
   "content": "Content",
   "content_help": "The content will be shown on the shop's homepage. Markdown is allowed, HTML will getting stripped.",
-  "shop": "Shop",
-  "deprecated_staff": "Deprecated: The staff list will be removed soon."
+  "shop": "Shop"
 }
