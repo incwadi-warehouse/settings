@@ -9,7 +9,8 @@ import { useReservation } from '@/composables/useReservation.js'
 import router from '@/router'
 import { onMounted, onUnmounted, ref } from 'vue'
 
-useLocale()
+const { locale } = useLocale()
+locale.value = import.meta.env.VUE_APP_I18N_LOCALE
 useTheme()
 
 const auth = useAuth()
