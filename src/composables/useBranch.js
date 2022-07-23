@@ -1,7 +1,13 @@
 import { reactive } from 'vue'
-import { request } from '@/api'
+import { useRequest } from '@baldeweg/ui'
+import Cookies from 'js-cookie'
 
 export function useBranch() {
+  const { config, setAuthHeader, request } = useRequest()
+
+  config.value.baseURL = import.meta.env.VUE_APP_API
+  setAuthHeader(Cookies.get('token'))
+
   const base = '/api/branch'
 
   const state = reactive({
