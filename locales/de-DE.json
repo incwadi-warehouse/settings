@@ -81,6 +81,6 @@
   "new_genre": "Neue Rubrik",
   "theme": "Design",
   "content": "Content",
-  "content_help": "Der Content wird auf der Startseite des Shops gezeigt. Markdown ist möglich, HTML wird entfernt.",
+  "content_help": "Der Content wird auf der Startseite des Shops gezeigt. Eine Teilmenge von Markdown und HTML ist zulässig.",
   "shop": "Shop"
 }
