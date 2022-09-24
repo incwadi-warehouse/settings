@@ -1,5 +1,5 @@
 <script setup>
-import { useLocale, useTheme } from '@baldeweg/ui'
+import { useLocale, useColorScheme } from '@baldeweg/ui'
 import { useToast } from '@baldeweg/ui'
 import { onMounted, onUnmounted, ref } from 'vue'
 import Logo from './components/AppLogo.vue'
@@ -10,9 +10,8 @@ import { useBookmark } from '@/composables/useBookmark.js'
 import { useReservation } from '@/composables/useReservation.js'
 import router from '@/router'
 
-const { locale } = useLocale()
-locale.value = import.meta.env.VUE_APP_I18N_LOCALE
-useTheme()
+useLocale()
+useColorScheme()
 
 const auth = useAuth()
 
@@ -182,12 +181,7 @@ const version = pkg.version
       <div v-html="about" />
     </b-container>
 
-    <b-drawer
-      :active="isDrawerActive"
-      collapsable
-      @open-menu="isDrawerActive = true"
-      @close-menu="isDrawerActive = false"
-    >
+    <b-panel :visible="isDrawerActive" @close="isDrawerActive = false">
       <div :style="{ padding: '20px' }">
         <b-list divider>
           <template #title>
@@ -223,7 +217,7 @@ const version = pkg.version
           </template>
         </b-list>
       </div>
-    </b-drawer>
+    </b-panel>
 
     <div class="project">
       <a href="https://github.com/abaldeweg">baldeweg Open Source</a>
