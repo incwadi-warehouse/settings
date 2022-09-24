@@ -84,13 +84,13 @@ const version = pkg.version
 <template>
   <b-app>
     <b-masthead>
-      <b-masthead-item type="start" v-if="auth.state.isAuthenticated">
+      <b-masthead-item position="start" v-if="auth.state.isAuthenticated">
         <span @click="isDrawerActive = true">
           <b-icon type="hamburger" />
         </span>
       </b-masthead-item>
 
-      <b-masthead-item type="center">
+      <b-masthead-item position="center">
         <a :href="catalog">
           <logo v-if="hasLogo" />
           <svg
@@ -108,7 +108,7 @@ const version = pkg.version
         </a>
       </b-masthead-item>
 
-      <b-masthead-item type="end" v-if="auth.state.isAuthenticated">
+      <b-masthead-item position="end" v-if="auth.state.isAuthenticated">
         <b-dropdown position="bottom" class="action">
           <template #selector>
             <span @click.prevent>
