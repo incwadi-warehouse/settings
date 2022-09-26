@@ -14,6 +14,15 @@ const bookmark = useBookmark()
 </script>
 
 <template>
+  <b-container size="m">
+    <b-alert type="warning">
+      <p>
+        Deprecated: The Bookmarks will be removed soon. Die Bookmarks werden
+        bald entfernt.
+      </p>
+    </b-alert>
+  </b-container>
+
   <article>
     <b-container size="m">
       <h1>{{ $t('bookmarks') }}</h1>
