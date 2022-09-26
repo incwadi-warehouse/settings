@@ -1,8 +1,8 @@
 <script setup>
 import { useTitle } from '@baldeweg/ui'
+import { onMounted } from 'vue'
 import SettingsStats from '../components/settings/SettingsStats.vue'
 import { useBook } from '@/composables/useBook.js'
-import { onMounted } from 'vue'
 
 useTitle({ title: 'Settings' })
 
@@ -56,9 +56,6 @@ const round = (value) => {
       </b-list>
       <b-list :route="{ name: 'genre' }" divider>
         <template #title>{{ $t('genre') }}</template>
-      </b-list>
-      <b-list :route="{ name: 'bookmark' }" divider>
-        <template #title>{{ $t('bookmarks') }}</template>
       </b-list>
     </b-container>
   </article>
