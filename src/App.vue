@@ -154,6 +154,12 @@ const version = pkg.version
           >
             {{ $t('bookmarks') }}
           </b-dropdown-item>
+
+          <b-alert type="warning">
+            <p>
+              Deprecated: Bookmarks will be removed. Bookmarks werden entfernt.
+            </p>
+          </b-alert>
         </b-dropdown>
 
         <span class="action" @click.prevent="navigateToOrders">
