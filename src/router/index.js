@@ -48,6 +48,12 @@ const router = createRouter({
       props: true,
     },
     {
+      path: '/announcement',
+      name: 'announcement',
+      component: () => import('../views/AnnouncementView.vue'),
+      props: true,
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: () => import('../views/ProfileView.vue'),
