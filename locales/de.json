@@ -94,5 +94,10 @@
   "own_branch_without_shop": "Eigene Filiale, ohne Shop (NICHT IMPLEMENTIERT)",
   "own_branch_shop_only": "Eigene Filiale, nur im Shop (NICHT IMPLEMENTIERT)",
   "show_details": "Zeige Details",
-  "hide_details": "Details verbergen"
+  "hide_details": "Details verbergen",
+  "tags": "Schlagworte",
+  "tags_desc": "Jeder kann Schlagworte sehen und Neue anlegen, jedoch können nur Admins Schlagworte bearbeiten und löschen.",
+  "books": "Bücher",
+  "new_tag": "Neues Schlagwort",
+  "enter_tag_and_hit_enter": "Tag eingeben und Enter drücken."
 }

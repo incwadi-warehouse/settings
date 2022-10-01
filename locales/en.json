@@ -94,5 +94,10 @@
   "own_branch_without_shop": "Own Branch, without shop (NOT IMPLEMENTED)",
   "own_branch_shop_only": "Own Branch, shop only (NOT IMPLEMENTED)",
   "show_details": "Show Details",
-  "hide_details": "Hide Details"
+  "hide_details": "Hide Details",
+  "tags": "Tags",
+  "tags_desc": "Everyone can see tags and create new ones, but only admins can edit or delete existing tags.",
+  "books": "Books",
+  "new_tag": "New Tag",
+  "enter_tag_and_hit_enter": "Enter tag and hit enter"
 }
