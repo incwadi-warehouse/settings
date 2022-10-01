@@ -48,6 +48,12 @@ const router = createRouter({
       props: true,
     },
     {
+      path: '/tag',
+      name: 'tag',
+      component: () => import('../views/TagView.vue'),
+      props: true,
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: () => import('../views/ProfileView.vue'),

@@ -82,5 +82,10 @@
   "theme": "Design",
   "content": "Content",
   "content_help": "Der Content wird auf der Startseite des Shops gezeigt. Eine Teilmenge von Markdown und HTML ist zulässig.",
-  "shop": "Shop"
+  "shop": "Shop",
+  "tags": "Schlagworte",
+  "tags_desc": "Jeder kann Schlagworte sehen und Neue anlegen, jedoch können nur Admins Schlagworte bearbeiten und löschen.",
+  "books": "Bücher",
+  "new_tag": "Neues Schlagwort",
+  "enter_tag_and_hit_enter": "Tag eingeben und Enter drücken."
 }

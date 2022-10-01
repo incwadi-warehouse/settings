@@ -82,5 +82,10 @@
   "theme": "Theme",
   "content": "Content",
   "content_help": "The content will be shown on the shop's homepage. A subset of Markdown and HTML is allowed.",
-  "shop": "Shop"
+  "shop": "Shop",
+  "tags": "Tags",
+  "tags_desc": "Everyone can see tags and create new ones, but only admins can edit or delete existing tags.",
+  "books": "Books",
+  "new_tag": "New Tag",
+  "enter_tag_and_hit_enter": "Enter tag and hit enter"
 }
