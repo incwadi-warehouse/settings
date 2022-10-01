@@ -115,6 +115,11 @@ const update = () => {
       </b-form-item>
       <b-form-item>
         <b-form-helpline>{{ $t('branchOrderByHelp') }}</b-form-helpline>
+        <b-alert type="warning">
+          Deprecation: This setting will be removed soon. "Name - Ascending"
+          will become the default. Diese Einstellung wird bald entfernt. "Name -
+          Aufsteigend" wird der Standard.
+        </b-alert>
       </b-form-item>
       <b-form-item>
         <b-form-select
