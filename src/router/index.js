@@ -42,12 +42,6 @@ const router = createRouter({
       props: true,
     },
     {
-      path: '/bookmark',
-      name: 'bookmark',
-      component: () => import('../views/BookmarkView.vue'),
-      props: true,
-    },
-    {
       path: '/announcement',
       name: 'announcement',
       component: () => import('../views/AnnouncementView.vue'),

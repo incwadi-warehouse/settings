@@ -7,7 +7,6 @@ import pkg from './../package.json'
 import ShowAnnouncement from '@/components/ShowAnnouncement.vue'
 import AuthLogin from '@/components/auth/Login.vue'
 import useAuth from '@/composables/useAuth.js'
-import { useBookmark } from '@/composables/useBookmark.js'
 import { useReservation } from '@/composables/useReservation.js'
 import router from '@/router'
 
@@ -33,28 +32,6 @@ onMounted(() => {
     isDrawerActive.value = false
     next()
   })
-})
-
-const bookmark = useBookmark()
-
-let bookmarkInterval = null
-
-if (auth.state.isAuthenticated) {
-  bookmark.list()
-}
-
-const refresh = () => {
-  bookmarkInterval = setInterval(() => {
-    if (auth.state.isAuthenticated) {
-      bookmark.list()
-    }
-  }, 5000)
-}
-
-onMounted(refresh)
-
-onUnmounted(() => {
-  clearInterval(bookmarkInterval)
 })
 
 const navigateToOrders = () => {
@@ -128,39 +105,6 @@ const version = pkg.version
           <b-dropdown-item @click.prevent="auth.logout()">
             {{ $t('logout') }}
           </b-dropdown-item>
-        </b-dropdown>
-
-        <b-dropdown position="bottom" class="action">
-          <template #selector>
-            <span @click.prevent>
-              <b-icon type="star" />
-            </span>
-          </template>
-          <b-dropdown-item
-            v-for="item in bookmark.state.bookmarks"
-            :key="item.id"
-            @click.prevent="bookmark.open(item.url)"
-          >
-            {{ item.name }}
-          </b-dropdown-item>
-
-          <b-dropdown-divider />
-
-          <b-dropdown-item icon="plus" @click="bookmark.createFromPage()">
-            {{ $t('addThisPage') }}
-          </b-dropdown-item>
-          <b-dropdown-item
-            icon="star"
-            @click="$router.push({ name: 'bookmark' })"
-          >
-            {{ $t('bookmarks') }}
-          </b-dropdown-item>
-
-          <b-alert type="warning">
-            <p>
-              Deprecated: Bookmarks will be removed. Bookmarks werden entfernt.
-            </p>
-          </b-alert>
         </b-dropdown>
 
         <span class="action" @click.prevent="navigateToOrders">
