@@ -4,6 +4,7 @@ import { useToast } from '@baldeweg/ui'
 import { onMounted, onUnmounted, ref } from 'vue'
 import Logo from './components/AppLogo.vue'
 import pkg from './../package.json'
+import ShowAnnouncement from '@/components/ShowAnnouncement.vue'
 import AuthLogin from '@/components/auth/Login.vue'
 import useAuth from '@/composables/useAuth.js'
 import { useReservation } from '@/composables/useReservation.js'
@@ -119,6 +120,8 @@ const version = pkg.version
         </span>
       </b-masthead-item>
     </b-masthead>
+
+    <ShowAnnouncement />
 
     <router-view :auth="auth" v-if="auth.state.isAuthenticated" />
 

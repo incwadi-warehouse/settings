@@ -57,6 +57,12 @@ const round = (value) => {
       <b-list :route="{ name: 'genre' }" divider>
         <template #title>{{ $t('genre') }}</template>
       </b-list>
+      <b-list :route="{ name: 'announcement' }" divider>
+        <template #title>{{ $t('announcements') }}</template>
+      </b-list>
+      <b-list :route="{ name: 'tag' }" divider>
+        <template #title>{{ $t('tags') }}</template>
+      </b-list>
     </b-container>
   </article>
 </template>

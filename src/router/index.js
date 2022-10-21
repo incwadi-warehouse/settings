@@ -42,6 +42,17 @@ const router = createRouter({
       props: true,
     },
     {
+      path: '/announcement',
+      name: 'announcement',
+      component: () => import('../views/AnnouncementView.vue'),
+    },
+    {
+      path: '/tag',
+      name: 'tag',
+      component: () => import('../views/TagView.vue'),
+      props: true,
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: () => import('../views/ProfileView.vue'),
