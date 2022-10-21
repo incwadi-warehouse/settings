@@ -79,7 +79,6 @@ const update = () => {
       steps: branch.value.steps,
       currency: branch.value.currency,
       ordering: branch.value.ordering,
-      orderBy: branch.value.orderBy,
       public: branch.value.public,
       pricelist: JSON.stringify(state.pricelist),
       cart: branch.value.cart,
